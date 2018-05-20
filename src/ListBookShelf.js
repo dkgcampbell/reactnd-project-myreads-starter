@@ -13,7 +13,6 @@ class ListBookShelf extends Component {
         <h2 className="bookshelf-title">{this.props.title}</h2>
         <div className="bookshelf-books">
           <ol className="books-grid">
-          {console.log(this.props.books)}
             {this.props.books.length ? this.props.books.map((book) => (
               <li key={book.id}>
                 <div className="book">
@@ -30,11 +29,11 @@ class ListBookShelf extends Component {
                   </div>
                   </div>
                   <div className="book-title">{book.title}</div>
-                  <div className="book-authors">{book.authors.map((author) => (
+                  <div className="book-authors">{book.authors ? book.authors.map((author) => (
                     <p key={author}>
                       {author}
                     </p>
-                  ))}</div>
+                  )): null}</div>
                 </div>
               </li>
             )) : null}
