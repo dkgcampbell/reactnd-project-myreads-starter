@@ -34,18 +34,19 @@ class BooksApp extends React.Component {
     this.setState({ showSearchPage: true });
   };
 
-  // search = (searchTerm) => {
-  //   const searchResults = BooksAPI.search(searchTerm);
-  //   this.setState({
-  //     searchResults: searchResults
-  //   });
-  // };
+  searchBooks = async(searchTerm) => {
+    const searchResults = await BooksAPI.search(searchTerm);
+    // console.log(searchResults);
+    this.setState({
+      searchResults: searchResults
+    });
+  };
 
-  // updateSearch = (newSearchTerm) => {
-  //   this.setState({
-  //     searchTerm: newSearchTerm
-  //   })
-  // };
+  updateSearch = (newSearchTerm) => {
+    this.setState({
+      searchTerm: newSearchTerm
+    })
+  };
 
   render() {
     return (
@@ -53,9 +54,9 @@ class BooksApp extends React.Component {
         {this.state.showSearchPage ? (
           <SearchBooks 
             onCloseSearch={this.closeSearch}
-            // updateSearch={this.updateSearch}
-            // onChange={this.search}
-            // searchResults={this.state.searchResults}
+            updateSearch={this.updateSearch}
+            onChange={this.searchBooks}
+            searchResults={this.state.searchResults}
           />
         ) : (
           <ListBooks 
