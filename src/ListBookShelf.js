@@ -13,11 +13,12 @@ class ListBookShelf extends Component {
         <h2 className="bookshelf-title">{this.props.title}</h2>
         <div className="bookshelf-books">
           <ol className="books-grid">
-            {this.props.books.map((book) => (
-              <li>
+          {console.log(this.props.books)}
+            {this.props.books.length ? this.props.books.map((book) => (
+              <li key={book.id}>
                 <div className="book">
                   <div className="book-top">
-                  <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.image})` }}></div>
+                  <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
                   <div className="book-shelf-changer">
                     <select>
                     <option value="none" disabled>Move to...</option>
@@ -32,7 +33,7 @@ class ListBookShelf extends Component {
                   <div className="book-authors">{book.author}</div>
                 </div>
               </li>
-            ))}
+            )) : null}
           </ol>
         </div>
       </div>
