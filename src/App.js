@@ -48,6 +48,16 @@ class BooksApp extends React.Component {
     })
   };
 
+  moveBook = (book, shelf) => {
+    BooksAPI.update(book, shelf);
+    BooksAPI.getAll()
+    .then((books) => {
+      this.setState(() => ({
+        books
+      }))
+    })
+  };
+
   render() {
     return (
       <div className="app">
@@ -56,12 +66,14 @@ class BooksApp extends React.Component {
             onCloseSearch={this.closeSearch}
             updateSearch={this.updateSearch}
             onChange={this.searchBooks}
+            onChangeShelf={this.moveBook}
             searchResults={this.state.searchResults}
           />
         ) : (
           <ListBooks 
             books={this.state.books}
             onOpenSearch={this.openSearch}
+            onChangeShelf={this.moveBook}
           />
         )}
       </div>

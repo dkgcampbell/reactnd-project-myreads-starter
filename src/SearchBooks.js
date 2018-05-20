@@ -7,7 +7,8 @@ class SearchBooks extends Component {
         onCloseSearch: PropTypes.func.isRequired,
         updateSearch: PropTypes.func.isRequired,
         onChange: PropTypes.func.isRequired,
-        searchResults: PropTypes.array.isRequired
+        searchResults: PropTypes.array.isRequired,
+        onChangeShelf: PropTypes.func.isRequired
     };
 
     handleChange = (e) => {
@@ -32,14 +33,14 @@ class SearchBooks extends Component {
                         However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
                         you don't find a specific author or title. Every search is limited by search terms.
                         */}
-                        <input type="text" placeholder="Search by title or author" onChange={this.handleChange} />
-        
+                        <input type="text" placeholder="Search by title or author" onChange={this.handleChange} />        
                     </div>
                 </div>
                 <div className="search-books-results">
                     <ListBookShelf
                         books={this.props.searchResults}
                         title='Search Results'
+                        onChangeShelf={this.props.onChangeShelf}
                     />
                     {/* <ol className="books-grid"></ol> */}
                 </div>

@@ -5,7 +5,8 @@ import ListBookShelf from './ListBookShelf';
 class ListBooks extends Component {
   static propTypes = {
     books: PropTypes.array.isRequired,
-    onOpenSearch: PropTypes.func.isRequired
+    onOpenSearch: PropTypes.func.isRequired,
+    onChangeShelf: PropTypes.func.isRequired
   };
 
   render() {
@@ -23,14 +24,17 @@ class ListBooks extends Component {
           <ListBookShelf
             books={booksCurrentlyReading}
             title='Currently Reading'
+            onChangeShelf={this.props.onChangeShelf}
           />
           <ListBookShelf
             books={booksWantToRead}
             title='Want to Read'
+            onChangeShelf={this.props.onChangeShelf}
           />
           <ListBookShelf
             books={booksRead}
             title='Read'
+            onChangeShelf={this.props.onChangeShelf}
           />
         </div>
       </div>
