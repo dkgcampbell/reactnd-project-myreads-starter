@@ -30,7 +30,11 @@ class ListBookShelf extends Component {
                   </div>
                   </div>
                   <div className="book-title">{book.title}</div>
-                  <div className="book-authors">{book.author}</div>
+                  <div className="book-authors">{book.authors.map((author) => (
+                    <p key={author}>
+                      {author}
+                    </p>
+                  ))}</div>
                 </div>
               </li>
             )) : null}
