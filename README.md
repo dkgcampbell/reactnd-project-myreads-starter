@@ -2,17 +2,21 @@
 
 
 ## Installation
-install all project dependencies with 
+Install all project dependencies with 
 ```
 npm install
 ```
 
 ## Launch
-start the development server with 
+Start the development server with 
 ```
 npm start
 ```
 
+The project will open at
+```
+http://localhost:3000/
+```
 
 ## From the template
 
