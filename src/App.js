@@ -36,11 +36,17 @@ class BooksApp extends React.Component {
 
   searchBooks = async(searchTerm) => {
     const searchResults = await BooksAPI.search(searchTerm);
-    // console.log(searchResults);
     this.setState({
       searchResults: searchResults
     });
   };
+
+  clearBooks = () => {
+    this.setState({
+      searchResults: []
+    });
+  };
+
 
   updateSearch = (newSearchTerm) => {
     this.setState({
@@ -66,6 +72,7 @@ class BooksApp extends React.Component {
             onCloseSearch={this.closeSearch}
             updateSearch={this.updateSearch}
             onChange={this.searchBooks}
+            onClear={this.clearBooks}
             onChangeShelf={this.moveBook}
             searchResults={this.state.searchResults}
           />

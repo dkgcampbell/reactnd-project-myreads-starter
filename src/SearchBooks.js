@@ -7,6 +7,7 @@ class SearchBooks extends Component {
         onCloseSearch: PropTypes.func.isRequired,
         updateSearch: PropTypes.func.isRequired,
         onChange: PropTypes.func.isRequired,
+        onClear: PropTypes.func.isRequired,
         searchResults: PropTypes.array.isRequired,
         onChangeShelf: PropTypes.func.isRequired
     };
@@ -15,8 +16,9 @@ class SearchBooks extends Component {
         this.props.updateSearch(e.target.value);
         if (e.target.value) {
             this.props.onChange(e.target.value)
+        } else {
+            this.props.onClear()
         };
-            //  : props.clearResults();
     };
 
     render() {
