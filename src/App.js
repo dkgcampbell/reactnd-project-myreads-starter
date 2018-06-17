@@ -1,18 +1,12 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 import * as BooksAPI from './BooksAPI';
-import './App.css'
+import './App.css';
 import SearchBooks from './SearchBooks';
 import ListBooks from './ListBooks';
 
 class BooksApp extends React.Component {
   state = {
-    /**
-     * TODO: Instead of using this state variable to keep track of which page
-     * we're on, use the URL in the browser's address bar. This will ensure that
-     * users can use the browser's back and forward buttons to navigate between
-     * pages, as well as provide a good URL they can bookmark and share.
-     */
-    showSearchPage: false,
     books: [],
     searchResults: []
   }
@@ -24,15 +18,6 @@ class BooksApp extends React.Component {
         books
       }))
     })
-  };
-
-  closeSearch = () => {
-    this.setState({ showSearchPage: false });
-    this.clearBooks();
-  };
-
-  openSearch = () => {
-    this.setState({ showSearchPage: true });
   };
 
   searchBooks = async(searchTerm) => {
@@ -53,7 +38,6 @@ class BooksApp extends React.Component {
     });
   };
 
-
   updateSearch = (newSearchTerm) => {
     this.setState({
       searchTerm: newSearchTerm
@@ -73,22 +57,21 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-        {this.state.showSearchPage ? (
+        <Route exact path='/' render={() => (
+          <ListBooks 
+            books={this.state.books}
+            onChangeShelf={this.moveBook}
+          />
+        )} />
+        <Route path='/search' render={() => (
           <SearchBooks 
-            onCloseSearch={this.closeSearch}
             updateSearch={this.updateSearch}
             onChange={this.searchBooks}
             onClear={this.clearBooks}
             onChangeShelf={this.moveBook}
             searchResults={this.state.searchResults}
           />
-        ) : (
-          <ListBooks 
-            books={this.state.books}
-            onOpenSearch={this.openSearch}
-            onChangeShelf={this.moveBook}
-          />
-        )}
+        )} />
       </div>
     )
   }

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ListBookShelf from './ListBookShelf';
 
 class ListBooks extends Component {
   static propTypes = {
     books: PropTypes.array.isRequired,
-    onOpenSearch: PropTypes.func.isRequired,
     onChangeShelf: PropTypes.func.isRequired
   };
 
@@ -39,7 +39,9 @@ class ListBooks extends Component {
         </div>
       </div>
       <div className="open-search">
-        <a onClick={this.props.onOpenSearch}>Add a book</a>
+        <Link
+          to='/search'
+        >Add a book</Link>
       </div>
     </div>
     )
