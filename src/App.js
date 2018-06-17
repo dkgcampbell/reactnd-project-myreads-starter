@@ -37,6 +37,11 @@ class BooksApp extends React.Component {
 
   searchBooks = async(searchTerm) => {
     const searchResults = await BooksAPI.search(searchTerm);
+    searchResults && searchResults.map((book) => {
+      var existingBook = this.state.books.find((x) => (x.id === book.id));
+      book.shelf = existingBook ? existingBook.shelf : 'none';
+      return book
+    })
     this.setState({
       searchResults: searchResults
     });

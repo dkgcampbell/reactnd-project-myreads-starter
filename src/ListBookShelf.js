@@ -4,7 +4,6 @@ import ShowBook from './ShowBook';
 
 class ListBookShelf extends Component {
   static propTypes = {
-    shelf: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     books: PropTypes.array.isRequired,
     onChangeShelf: PropTypes.func.isRequired
@@ -20,7 +19,6 @@ class ListBookShelf extends Component {
               <li key={book.id}>
                 <ShowBook 
                   book={book}
-                  shelf={this.props.shelf}
                   onChangeShelf={this.props.onChangeShelf}/>
               </li>
             )) : null}

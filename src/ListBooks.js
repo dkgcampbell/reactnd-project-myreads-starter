@@ -22,19 +22,16 @@ class ListBooks extends Component {
       <div className="list-books-content">
         <div>
           <ListBookShelf
-            shelf='currentlyReading'
             books={booksCurrentlyReading}
             title='Currently Reading'
             onChangeShelf={this.props.onChangeShelf}
           />
           <ListBookShelf
-            shelf='wantToRead'
             books={booksWantToRead}
             title='Want to Read'
             onChangeShelf={this.props.onChangeShelf}
           />
           <ListBookShelf
-            shelf='read'
             books={booksRead}
             title='Read'
             onChangeShelf={this.props.onChangeShelf}
