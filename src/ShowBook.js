@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 class ShowBook extends Component {
   static propTypes = {
     book: PropTypes.object.isRequired,
+    shelf: PropTypes.object.isRequired,
     onChangeShelf: PropTypes.func.isRequired
   };
 
@@ -26,7 +27,7 @@ class ShowBook extends Component {
         <div className="book-top">
           <div className="book-cover" style={style}></div>
           <div className="book-shelf-changer">
-            <select onChange={this.handleChange} value={this.props.book.shelf}>
+            <select onChange={this.handleChange} value={this.props.shelf}>
                 <option value="none" disabled>Move to...</option>
                 <option value="currentlyReading">Currently Reading</option>
                 <option value="wantToRead">Want to Read</option>

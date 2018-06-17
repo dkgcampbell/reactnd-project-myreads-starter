@@ -42,6 +42,7 @@ class SearchBooks extends Component {
                     <ListBookShelf
                         books={this.props.searchResults}
                         title='Search Results'
+                        shelf='none'
                         onChangeShelf={this.props.onChangeShelf}
                     />
                     {/* <ol className="books-grid"></ol> */}
