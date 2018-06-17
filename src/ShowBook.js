@@ -27,7 +27,7 @@ class ShowBook extends Component {
           <div className="book-cover" style={style}></div>
           <div className="book-shelf-changer">
             <select onChange={this.handleChange} value={this.props.book.shelf}>
-                <option value="none" disabled>Move to...</option>
+                <option value="" disabled>Move to...</option>
                 <option value="currentlyReading">Currently Reading</option>
                 <option value="wantToRead">Want to Read</option>
                 <option value="read">Read</option>
